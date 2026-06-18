@@ -9,23 +9,27 @@ const services = [
     description:
       "От лаконичных пусетов на каждый день до выразительных вечерних серёг, которые становятся главным акцентом образа.",
     mockup: "social",
+    photo: "https://cdn.poehali.dev/projects/36a66679-04e2-488d-9ab5-6e5c3f594656/bucket/4ad011a0-9948-48e1-a50b-71d6c5748a24.jpg",
   },
   {
     title: "Кольца",
     description:
       "Изящные минималистичные модели и эффектные коктейльные кольца с камнями — для повседневности и особых моментов.",
     mockup: "google-ads",
+    photo: "https://cdn.poehali.dev/projects/36a66679-04e2-488d-9ab5-6e5c3f594656/bucket/5eb1387d-ea0f-404a-8396-440d7e339173.jpg",
   },
   {
     title: "Колье и подвески",
     description: "Тонкие цепочки, многослойные колье и подвески с характером, чтобы подчеркнуть линию шеи и декольте.",
     mockup: "email",
+    photo: "https://cdn.poehali.dev/projects/36a66679-04e2-488d-9ab5-6e5c3f594656/bucket/3ac3b2b7-2535-41aa-8a72-b7a58d908ccd.jpg",
   },
   {
     title: "Браслеты",
     description:
       "Лёгкие браслеты и стильные наборы для запястья, которые легко комбинировать между собой и носить каждый день.",
     mockup: "seo",
+    photo: "https://cdn.poehali.dev/projects/36a66679-04e2-488d-9ab5-6e5c3f594656/bucket/11d5a6d4-f09b-4047-9dce-44eb7b1dca31.jpg",
   },
   {
     title: "Комплекты",
@@ -38,6 +42,7 @@ const services = [
     description:
       "Создадим украшение по вашей задумке: подберём материалы, цвет и форму под особый случай или подарок.",
     mockup: "web-dev",
+    photo: "https://cdn.poehali.dev/projects/36a66679-04e2-488d-9ab5-6e5c3f594656/bucket/4ad011a0-9948-48e1-a50b-71d6c5748a24.jpg",
     badges: [
       { icon: <Shield className="w-4 h-4" />, text: "Гипоаллергенно" },
       { icon: <DollarSign className="w-4 h-4" />, text: "Честная цена" },
@@ -81,7 +86,10 @@ export default function InnovativeServices() {
                 className="bg-gray-900/30 border border-gray-800 rounded-2xl p-8 backdrop-blur-sm hover:border-gray-700 transition-all duration-300 group"
               >
                 <div className="aspect-video bg-gray-900 rounded-lg mb-6 overflow-hidden relative border border-gray-800">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 p-4">
+                  {service.photo ? (
+                    <img src={service.photo} alt={service.title} className="w-full h-full object-cover" />
+                  ) : null}
+                  <div className={`absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 p-4 ${service.photo ? 'hidden' : ''}`}>
                     {/* Paid Social Mockup */}
                     {service.mockup === "social" && (
                       <motion.div
@@ -292,7 +300,10 @@ export default function InnovativeServices() {
                 className="bg-gray-900/30 border border-gray-800 rounded-2xl p-8 backdrop-blur-sm hover:border-gray-700 transition-all duration-300 group"
               >
                 <div className="aspect-video bg-gray-900 rounded-lg mb-6 overflow-hidden relative border border-gray-800">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 p-4">
+                  {service.photo ? (
+                    <img src={service.photo} alt={service.title} className="w-full h-full object-cover" />
+                  ) : null}
+                  <div className={`absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 p-4 ${service.photo ? 'hidden' : ''}`}>
                     {/* Email/SMS Mockup */}
                     {service.mockup === "email" && (
                       <motion.div
@@ -477,7 +488,10 @@ export default function InnovativeServices() {
 
                 <div className="md:col-span-2">
                   <div className="aspect-[16/9] bg-gray-900 rounded-lg overflow-hidden relative border border-gray-800">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 p-4">
+                    {service.photo ? (
+                      <img src={service.photo} alt={service.title} className="w-full h-full object-cover" />
+                    ) : null}
+                    <div className={`absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 p-4 ${service.photo ? 'hidden' : ''}`}>
                       {/* Web Development Mockup */}
                       <motion.div
                         initial={{ opacity: 0 }}

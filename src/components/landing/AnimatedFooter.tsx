@@ -161,15 +161,15 @@ export default function AnimatedFooter() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 text-gray-400 justify-center sm:justify-start">
                   <Mail className="h-5 w-5 text-blue-500" />
-                  <span>hello@lumiere.shop</span>
+                  <span>ivlev2026@mail.ru</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-400 justify-center sm:justify-start">
                   <Phone className="h-5 w-5 text-blue-500" />
-                  <span>+7 (495) 123-45-67</span>
+                  <span>+7 (901) 914-18-48</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-400 justify-center sm:justify-start">
                   <MapPin className="h-5 w-5 text-blue-500" />
-                  <span>Москва, Россия</span>
+                  <span>Пенза, Россия</span>
                 </div>
               </div>
 
