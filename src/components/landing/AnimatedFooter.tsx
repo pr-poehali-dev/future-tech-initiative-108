@@ -1,7 +1,7 @@
 import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Instagram, Twitter, Linkedin, Youtube, Mail, Phone, MapPin, ArrowRight } from "lucide-react"
+import { Twitter, Linkedin, Youtube, Mail, Phone, MapPin, ArrowRight } from "lucide-react"
 import AnimatedButton from "./AnimatedButton"
 
 export default function AnimatedFooter() {
@@ -90,7 +90,6 @@ export default function AnimatedFooter() {
             {/* Social Links */}
             <div className="flex space-x-6 justify-center lg:justify-start">
               {[
-                { icon: Instagram, href: "#", label: "Instagram" },
                 { icon: Twitter, href: "#", label: "Twitter" },
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
                 { icon: Youtube, href: "#", label: "YouTube" },
