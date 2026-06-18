@@ -5,43 +5,43 @@ import AnimatedButton from "./AnimatedButton"
 
 const services = [
   {
-    title: "Таргетированная реклама",
+    title: "Серьги",
     description:
-      "Стимулируем рост и вовлечение через data-driven рекламу в соцсетях с таргетированными стратегиями для развития бренда.",
+      "От лаконичных пусетов на каждый день до выразительных вечерних серёг, которые становятся главным акцентом образа.",
     mockup: "social",
   },
   {
-    title: "Google Ads",
+    title: "Кольца",
     description:
-      "Достигаем клиентов в нужный момент с Google Ads, привлекая трафик и продажи через таргетированную рекламу.",
+      "Изящные минималистичные модели и эффектные коктейльные кольца с камнями — для повседневности и особых моментов.",
     mockup: "google-ads",
   },
   {
-    title: "Email / SMS",
-    description: "Достигаем клиентов через таргетированный email и SMS маркетинг, стимулируя продажи и лояльность.",
+    title: "Колье и подвески",
+    description: "Тонкие цепочки, многослойные колье и подвески с характером, чтобы подчеркнуть линию шеи и декольте.",
     mockup: "email",
   },
   {
-    title: "SEO",
+    title: "Браслеты",
     description:
-      "Повышаем видимость в поисковых системах: аудит сайта, анализ ключевых слов и комплексная оптимизация.",
+      "Лёгкие браслеты и стильные наборы для запястья, которые легко комбинировать между собой и носить каждый день.",
     mockup: "seo",
   },
   {
-    title: "Аналитика",
+    title: "Комплекты",
     description:
-      "Отслеживаем эффективность и получаем инсайты с комплексной аналитикой для принятия data-driven решений.",
+      "Готовые сеты украшений в едином стиле — продуманное сочетание, которое смотрится цельно и дорого.",
     mockup: "analytics",
   },
   {
-    title: "Веб-разработка",
+    title: "Украшения на заказ",
     description:
-      "Создаем сайты любой сложности: от лендингов до крупных порталов, с гибкими тарифами под ваши задачи.",
+      "Создадим украшение по вашей задумке: подберём материалы, цвет и форму под особый случай или подарок.",
     mockup: "web-dev",
     badges: [
-      { icon: <Shield className="w-4 h-4" />, text: "SSL-защита" },
-      { icon: <DollarSign className="w-4 h-4" />, text: "Без абонплаты" },
-      { icon: <CheckCircle className="w-4 h-4" />, text: "Uptime 99.9%" },
+      { icon: <Shield className="w-4 h-4" />, text: "Гипоаллергенно" },
+      { icon: <DollarSign className="w-4 h-4" />, text: "Честная цена" },
+      { icon: <CheckCircle className="w-4 h-4" />, text: "Гарантия качества" },
     ],
   },
 ]
@@ -59,9 +59,9 @@ export default function InnovativeServices() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Услуги для роста бизнеса</h2>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Наши коллекции</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Индивидуальные решения для оптимизации, инноваций и масштабирования.
+            Авторская бижутерия ручной работы на любой случай и настроение.
           </p>
         </motion.div>
 
@@ -494,7 +494,7 @@ export default function InnovativeServices() {
                               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                             </div>
                             <div className="bg-gray-600 text-gray-300 text-xs px-2 py-1 rounded flex-1 text-center">
-                              www.pulsedigital.agency
+                              www.lumiere.shop
                             </div>
                           </div>
                         </div>

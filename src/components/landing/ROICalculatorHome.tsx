@@ -5,31 +5,31 @@ import { TrendingUp, Target, Briefcase, Palette, Home, BarChart3 } from "lucide-
 const businessTypes = [
   {
     id: "retail",
-    name: "Ритейл",
+    name: "Серьги",
     icon: <Briefcase className="w-6 h-6" />,
     multiplier: 3.2,
-    description: "E-commerce и магазины",
+    description: "Пусеты и вечерние",
   },
   {
     id: "real-estate",
-    name: "Недвижимость",
+    name: "Кольца",
     icon: <Home className="w-6 h-6" />,
     multiplier: 4.1,
-    description: "Агенты и управление",
+    description: "Минимализм и камни",
   },
   {
     id: "artist",
-    name: "Креатив",
+    name: "Колье",
     icon: <Palette className="w-6 h-6" />,
     multiplier: 2.8,
-    description: "Блогеры и артисты",
+    description: "Цепочки и подвески",
   },
   {
     id: "professional",
-    name: "B2B услуги",
+    name: "Комплекты",
     icon: <Target className="w-6 h-6" />,
     multiplier: 3.7,
-    description: "Консалтинг и сервисы",
+    description: "Готовые сеты",
   },
 ]
 
@@ -38,22 +38,29 @@ const formatRub = (num: number) => {
   return num.toLocaleString('ru-RU')
 }
 
+// Средняя цена украшения по категории (в рублях)
+const avgPrices: Record<string, number> = {
+  retail: 1800,
+  "real-estate": 2400,
+  artist: 2600,
+  professional: 4500,
+}
+
 export default function ROICalculatorHome() {
-  // Бюджет в рублях (100 000 - 2 500 000)
-  const [selectedBudget, setSelectedBudget] = useState(500000)
+  // Бюджет в рублях (3 000 - 30 000)
+  const [selectedBudget, setSelectedBudget] = useState(10000)
   const [selectedBusiness, setSelectedBusiness] = useState("retail")
 
-  const selectedBusinessType = businessTypes.find((b) => b.id === selectedBusiness)
-  const multiplier = selectedBusinessType?.multiplier || 3.2
+  const avgPrice = avgPrices[selectedBusiness] || 1800
 
-  const calculateROI = (budget: number) => {
-    const baseReturn = budget * multiplier
-    const scaleFactor = budget / 1000000
-    return Math.round(baseReturn * (1 + scaleFactor * 0.3))
+  // Количество украшений в наборе
+  const calculateItems = (budget: number) => {
+    return Math.max(1, Math.floor(budget / avgPrice))
   }
 
-  const calculateMonthlyRevenue = (budget: number) => {
-    return Math.round(calculateROI(budget) / 12)
+  // Цена за одно украшение
+  const calculatePerItem = () => {
+    return avgPrice
   }
 
   return (
@@ -66,9 +73,9 @@ export default function ROICalculatorHome() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Рассчитайте ROI</h2>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Подберите подарок</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Узнайте, какую выручку вы можете получить с нашими маркетинговыми стратегиями
+            Выберите бюджет и категорию — покажем, сколько украшений можно собрать в подарочный набор
           </p>
         </motion.div>
 
@@ -93,7 +100,7 @@ export default function ROICalculatorHome() {
             <div className="space-y-8">
               {/* Business Type Selection */}
               <div>
-                <label className="block text-lg font-medium text-white mb-4">Выберите тип бизнеса</label>
+                <label className="block text-lg font-medium text-white mb-4">Выберите категорию</label>
                 <div className="grid grid-cols-2 gap-3">
                   {businessTypes.map((business) => (
                     <motion.button
@@ -127,28 +134,28 @@ export default function ROICalculatorHome() {
 
               {/* Budget Slider */}
               <div>
-                <label className="block text-lg font-medium text-white mb-4">Месячный бюджет на маркетинг</label>
+                <label className="block text-lg font-medium text-white mb-4">Ваш бюджет на подарок</label>
                 <div className="relative">
                   <input
                     type="range"
-                    min="100000"
-                    max="2500000"
-                    step="50000"
+                    min="3000"
+                    max="30000"
+                    step="1000"
                     value={selectedBudget}
                     onChange={(e) => setSelectedBudget(Number(e.target.value))}
                     className="w-full h-3 bg-gray-700 rounded-lg appearance-none cursor-pointer"
                     style={{
-                      background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${((selectedBudget - 100000) / (2500000 - 100000)) * 100}%, #374151 ${((selectedBudget - 100000) / (2500000 - 100000)) * 100}%, #374151 100%)`,
+                      background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${((selectedBudget - 3000) / (30000 - 3000)) * 100}%, #374151 ${((selectedBudget - 3000) / (30000 - 3000)) * 100}%, #374151 100%)`,
                     }}
                   />
                   <div className="flex justify-between text-sm text-gray-400 mt-2">
-                    <span>100 тыс.</span>
-                    <span>2.5 млн</span>
+                    <span>3 тыс.</span>
+                    <span>30 тыс.</span>
                   </div>
                 </div>
                 <div className="text-center mt-4">
                   <span className="text-3xl font-bold text-white">{formatRub(selectedBudget)} &#8381;</span>
-                  <span className="text-gray-400 ml-2">в месяц</span>
+                  <span className="text-gray-400 ml-2">на подарок</span>
                 </div>
               </div>
 
@@ -156,11 +163,11 @@ export default function ROICalculatorHome() {
               <div className="bg-gray-800/30 border border-gray-700/50 rounded-xl p-4">
                 <div className="flex items-center space-x-3 mb-2">
                   <BarChart3 className="w-5 h-5 text-blue-400" />
-                  <span className="text-sm font-medium text-white">На основе реальных данных</span>
+                  <span className="text-sm font-medium text-white">Подбор по средним ценам</span>
                 </div>
                 <p className="text-xs text-gray-400 leading-relaxed">
-                  Прогнозы основаны на реальных показателях наших клиентов из аналогичных
-                  отраслей и бюджетных категорий. Индивидуальные результаты могут отличаться.
+                  Расчёт ориентировочный и основан на средней стоимости украшений в каждой категории.
+                  Точный состав набора мы подберём вместе с вами при оформлении заказа.
                 </p>
               </div>
             </div>
@@ -189,7 +196,7 @@ export default function ROICalculatorHome() {
                     strokeLinecap="round"
                     initial={{ strokeDasharray: "0 219.8" }}
                     animate={{
-                      strokeDasharray: `${Math.min((calculateROI(selectedBudget) / (selectedBudget * 8)) * 219.8, 219.8)} 219.8`,
+                      strokeDasharray: `${Math.min((calculateItems(selectedBudget) / 12) * 219.8, 219.8)} 219.8`,
                     }}
                     transition={{ duration: 1, ease: "easeOut" }}
                   />
@@ -209,9 +216,9 @@ export default function ROICalculatorHome() {
                       animate={{ scale: 1, opacity: 1 }}
                       className="text-2xl font-bold text-white"
                     >
-                      {Math.round((calculateROI(selectedBudget) / selectedBudget) * 100)}%
+                      {calculateItems(selectedBudget)}
                     </motion.div>
-                    <div className="text-gray-400 text-sm">ROI</div>
+                    <div className="text-gray-400 text-sm">украшений</div>
                   </div>
                 </div>
               </div>
@@ -226,9 +233,9 @@ export default function ROICalculatorHome() {
                     animate={{ scale: 1, opacity: 1 }}
                     className="text-2xl font-bold text-white mb-1"
                   >
-                    {formatRub(calculateMonthlyRevenue(selectedBudget))}
+                    {formatRub(calculatePerItem())}
                   </motion.div>
-                  <div className="text-gray-400 text-sm">Выручка/мес</div>
+                  <div className="text-gray-400 text-sm">Цена за шт.</div>
                 </div>
 
                 <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50 text-center">
@@ -239,9 +246,9 @@ export default function ROICalculatorHome() {
                     animate={{ scale: 1, opacity: 1 }}
                     className="text-2xl font-bold text-white mb-1"
                   >
-                    {formatRub(calculateROI(selectedBudget))}
+                    {formatRub(calculateItems(selectedBudget) * calculatePerItem())}
                   </motion.div>
-                  <div className="text-gray-400 text-sm">Выручка/год</div>
+                  <div className="text-gray-400 text-sm">Итого за набор</div>
                 </div>
               </div>
             </div>

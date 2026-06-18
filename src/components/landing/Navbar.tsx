@@ -50,7 +50,7 @@ export default function Navbar() {
             <div className="flex items-center">
               <a href="/" className="flex items-center space-x-3">
                 <span className="text-xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Pulse Digital
+                  Lumière
                 </span>
               </a>
             </div>
@@ -58,13 +58,13 @@ export default function Navbar() {
             <div className="hidden md:block">
               <div className="flex items-center space-x-8">
                 <a href="#services" className="text-sm text-gray-300 hover:text-blue-400 transition-colors">
-                  Услуги
+                  Каталог
                 </a>
                 <a href="#artists" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">
-                  Клиенты
+                  Коллекции
                 </a>
                 <a href="#success-stories" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
-                  Кейсы
+                  О бренде
                 </a>
                 <a href="#contact" className="text-sm text-gray-300 hover:text-orange-400 transition-colors">
                   Контакты
@@ -78,7 +78,7 @@ export default function Navbar() {
               </Button>
               <a href="#get-started">
                 <AnimatedButton size="sm" className="bg-white text-black hover:bg-gray-100">
-                  Начать
+                  В каталог
                 </AnimatedButton>
               </a>
             </div>
@@ -96,20 +96,20 @@ export default function Navbar() {
           <div className="md:hidden border-t border-gray-700/50 bg-gray-900/80 backdrop-blur-md rounded-b-2xl">
             <div className="px-6 py-4 space-y-3">
               <a href="#services" className="block text-gray-300 hover:text-blue-400">
-                Услуги
+                Каталог
               </a>
               <a href="#artists" className="block text-gray-300 hover:text-purple-400">
-                Клиенты
+                Коллекции
               </a>
               <a href="#success-stories" className="block text-gray-300 hover:text-green-400">
-                Кейсы
+                О бренде
               </a>
               <a href="#contact" className="block text-gray-300 hover:text-orange-400">
                 Контакты
               </a>
               <div className="pt-3 border-t border-gray-700">
                 <a href="#get-started" className="block">
-                  <AnimatedButton className="w-full bg-white text-black hover:bg-gray-100">Начать</AnimatedButton>
+                  <AnimatedButton className="w-full bg-white text-black hover:bg-gray-100">В каталог</AnimatedButton>
                 </a>
               </div>
             </div>
